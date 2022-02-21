@@ -1,0 +1,2 @@
+class ContextNotFound(RuntimeError):
+    pass
