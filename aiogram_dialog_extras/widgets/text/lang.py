@@ -30,7 +30,7 @@ class Lang(Format):
     async def _render_text(self, data: dict, manager: DialogManager) -> str:
         _: Gettext = manager.data['_']
         formatter = self.formatter(_)
-        text = str(_(self.text))
+        text = _(self.text)
         return formatter.convert_field(text, **data)
 
 
@@ -52,5 +52,5 @@ class NLang(Lang):
     async def _render_text(self, data: dict, manager: DialogManager) -> str:
         __: NGettext = manager.data['__']
         formatter = self.formatter(__)
-        text = str(__(self.text, self.plural, self.ngetter(data), self.locale))
+        text = __(self.text, self.plural, self.ngetter(data), self.locale)
         return formatter.convert_field(text, **data)
