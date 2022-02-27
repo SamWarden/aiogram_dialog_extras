@@ -9,7 +9,7 @@ this_directory = path.abspath(path.dirname(__file__))
 setup(
     name='aiogram_dialog_extras',
     description='A pack of extras for better use of the aiogram-dialog framework',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/SamWarden/aiogram_dialog_extras',
     author='Aivan Warden',
     author_email='SamWardenSad@gmail.com',
