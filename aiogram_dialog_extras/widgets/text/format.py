@@ -44,9 +44,6 @@ class ExtendedFormatter(Formatter):
 class Format(_Format):
     formatter: ClassVar[Type[Formatter]] = ExtendedFormatter
 
-    def __init__(self, text: str, when: WhenCondition = None):
-        super().__init__(text, when)
-
     async def _render_text(self, data: dict, manager: DialogManager) -> str:
         formatter = self.formatter()
         return formatter.format(self.text, **data)
