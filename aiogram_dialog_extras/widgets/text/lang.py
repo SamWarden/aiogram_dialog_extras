@@ -31,7 +31,7 @@ class Lang(Format):
         _: Gettext = manager.data['_']
         formatter = self.formatter(_)
         text = _(self.text)
-        return formatter.convert_field(text, **data)
+        return formatter.format(text, **data)
 
 
 class NLang(Lang):
@@ -53,4 +53,4 @@ class NLang(Lang):
         __: NGettext = manager.data['__']
         formatter = self.formatter(__)
         text = __(self.text, self.plural, self.ngetter(data), self.locale)
-        return formatter.convert_field(text, **data)
+        return formatter.format(text, **data)
