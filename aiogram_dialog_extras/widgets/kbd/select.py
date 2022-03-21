@@ -46,14 +46,12 @@ class SelectUrl(Select):
         on_click: Union[OnItemClick, WidgetEventProcessor, None] = None,
         when: Union[str, Callable] = None,
     ):
-        super(_Select, self).__init__(id, item_id_getter, items, on_click, when)
+        super().__init__(text, id, item_id_getter, items, on_click, when)
 
-        if isinstance(items, str):
-            self.item_url_getter: ItemUrlGetter = itemgetter(items)
-        elif callable(items):
-            self.item_url_getter = item_url_getter
+        if item_url_getter is None:
+            self.item_url_getter: ItemUrlGetter = lambda item: None
         else:
-            self.item_url_getter = lambda item: None
+            self.item_url_getter = item_url_getter
 
     async def _render_button(
         self, pos: int, item: Any, data: dict, manager: DialogManager,
