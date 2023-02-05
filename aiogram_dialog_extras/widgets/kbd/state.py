@@ -23,7 +23,7 @@ def get_merged_data(aiogd_context: Context) -> dict:
         data = {}
 
     if isinstance(aiogd_context.dialog_data, dict):
-        data |= aiogd_context.dialog_data
+        data = data | aiogd_context.dialog_data
 
     return data
 
